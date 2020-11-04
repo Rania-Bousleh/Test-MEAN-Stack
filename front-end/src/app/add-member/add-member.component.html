@@ -1,0 +1,63 @@
+<button class="btn btn-link" mat-dialog-close style="border: none; background: none;color: black;
+position: absolute;
+top: 120px;
+left: 410px;"><mat-icon>close</mat-icon></button>
+<div style="text-align: center;">
+    <h2 style="margin: 0px;"> Add Speaker/Moderator</h2>
+    <h5>Set the Speaker/Moderator's details</h5>
+</div>
+
+
+<form>
+
+
+    <div class="form-group">
+        <label for="inputName"><strong>Name</strong></label>
+        <input type="text" class="form-control" id="inputName" placeholder="Enter Name" [(ngModel)]="name" name="name"
+            [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group">
+        <label for="inputSubtitle"><strong>Subtitle</strong></label>
+        <input type="text" class="form-control" name="subtitle" id="inputSubtitle" placeholder="Enter Subtitle"
+            [(ngModel)]="subtitle">
+    </div>
+
+
+    <div class="form-check form-check-inline" style=" margin-left:20px; margin-bottom: 1px; ">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Speaker"
+            [(ngModel)]="role">
+        <label class="form-check-label" for="inlineRadio1" style=" font-size: 15px;">Speaker</label>
+    </div>
+    <div class="form-check form-check-inline" style=" margin-left: 20px; margin-bottom: 1px; ">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Moderator"
+            [(ngModel)]="role">
+        <label class="form-check-label" for="inlineRadio2" style="  font-size: 15px;">Moderator</label>
+    </div>
+        <div>
+            <br>
+            <label for="inputLogo"><strong>Logo</strong></label>
+            <br>
+            <input #fileInput type="file" name="image" />
+            <!--<input #fileInput type="file" name="file" id="file" class="inputfile" />
+            <label for="file">Choose a file</label>-->
+      
+            <button mat-stroked-button color="primary" (click)="onFileUpload()" style="float: right;"><mat-icon>cloud_upload</mat-icon></button>
+
+           
+           <!-- <div  class="progress">
+                <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                    attr.aria-valuenow="{{progress.percentage}}" aria-valuemin="0" aria-valuemax="100"
+                    [ngStyle]="{width:progress.percentage+'%'}">
+                    {{progress.percentage}}%</div>
+            </div>-->
+     
+        </div>
+    
+    <br>
+    <br>
+    <div>
+
+        <button class="btn btn-primary" style="padding: 3px 30px; float: right;" (click)="addNew()">Add</button>
+
+    </div>
+</form>
