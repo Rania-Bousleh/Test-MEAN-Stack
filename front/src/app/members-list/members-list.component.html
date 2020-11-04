@@ -1,0 +1,171 @@
+<div class="container">
+    <mat-card class="mat-elevation-z5" style="width: 50%; margin: auto;">
+
+        <div class="row">
+            <div class="col">
+                <h2 style="margin: 0px;">Speakers/Moderators </h2>
+
+            </div>
+            <div class="col">
+
+
+
+
+                <button mat-icon-button type="button" class="btn btn-outline-primary    "
+                    style="float: right; border-radius: 50%;" (click)="addMember()">
+                    <i class="material-icons">add</i></button>
+            </div>
+        </div>
+        <mat-card-content style="overflow: auto; max-height: 220px;">
+            <div *ngIf="members">
+                <div class="card-body">
+
+                    <div *ngIf="veriflength==1">
+                        <div class="row" style="font-size: 12px; text-align: center;">
+                            <div class="col-sm-3" *ngFor="let m of members">
+                                <div style="border: 1px solid black; border-radius: 50%;height: 50px;
+                                width: 50px; margin: auto; 
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;"
+                                    [style.background-image]="'url(../../assets/img/'+m.photo+')'">
+
+                                </div>
+                                <div><strong>{{m.name}}</strong> </div>
+                                <div>{{m.role}}</div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div *ngIf="veriflength==2">
+
+                        <div class="row" style="font-size: 12px; text-align: center;">
+                            <div class="col-sm-3" *ngFor="let m of members| slice:0:4">
+                                <div style="border: 1px solid black; border-radius: 50%;height: 50px;
+                                            width: 50px; margin: auto; 
+                                            background-size: cover;
+                                            background-repeat: no-repeat;
+                                            background-position: center;"
+                                    [style.background-image]="'url(../../assets/img/'+m.photo+')'">
+                                </div>
+                                <div><strong>{{m.name}}</strong> </div>
+                                <div>{{m.role}}</div>
+                            </div>
+
+
+                        </div>
+                        <br>
+                        <div class="row" style="font-size: 12px; text-align: center;">
+                            <div class="col-sm-3" *ngFor="let m of members| slice:4:members.length">
+                                <div style="border: 1px solid black; border-radius: 50%;height: 50px;
+                                width: 50px; margin: auto; 
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;"
+                                    [style.background-image]="'url(../../assets/img/'+m.photo+')'">
+                                </div>
+                                <div><strong>{{m.name}}</strong> </div>
+                                <div>{{m.role}}</div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div *ngIf="veriflength==0">
+
+                        <div class="row" style="font-size: 12px; text-align: center;">
+                            <div class="col-sm-3" *ngFor="let m of members| slice:0:4">
+                                <div style="border: 1px solid black; border-radius: 50%;height: 50px;
+                                            width: 50px; margin: auto; 
+                                            background-size: cover;
+                                            background-repeat: no-repeat;
+                                            background-position: center;"
+                                    [style.background-image]="'url(../../assets/img/'+m.photo+')'">
+                                </div>
+                                <div><strong>{{m.name}}</strong> </div>
+                                <div>{{m.role}}</div>
+                            </div>
+
+
+                        </div>
+                        <br>
+                        <div class="row" style="font-size: 12px; text-align: center;" *ngIf="suit==0">
+                            <div class="col-sm-3" *ngFor="let m of members| slice:4:7">
+                                <div style="border: 1px solid black; border-radius: 50%;height: 50px;
+                                width: 50px; margin: auto; 
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;"
+                                    [style.background-image]="'url(../../assets/img/'+m.photo+')'">
+                                </div>
+                                <div><strong>{{m.name}}</strong> </div>
+                                <div>{{m.role}}</div>
+                            </div>
+                            <div class="col-sm-3">
+                                <button style="border: 1px solid black; border-radius: 50%;height: 50px;
+                                width: 50px; margin: auto; " (click)="  displayNext()">
+
+                                    <strong> +{{members.length-7}} </strong>
+                                </button>
+
+                            </div>
+                            <!--<div class="col-sm-3" *ngIf="suit==1" *ngFor="let m of members| slice:7:8">
+                                <div style="border: 1px solid black; border-radius: 50%;height: 50px;
+                                width: 50px; margin: auto; 
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;"
+                                    [style.background-image]="'url(../../assets/'+m.photo+')'">
+                                </div>
+                                <div><strong>{{m.name}}</strong> </div>
+                                <div>{{m.role}}</div>
+
+                            </div>-->
+                            <!--<div class="row" style="font-size: 12px; text-align: center;">
+                                <div class="col-sm-3" *ngFor="let m of members| slice:8:members.length">
+                                    <div style="border: 1px solid black; border-radius: 50%;height: 50px;
+                                            width: 50px; margin: auto; 
+                                            background-size: cover;
+                                            background-repeat: no-repeat;
+                                            background-position: center;"
+                                        [style.background-image]="'url(../../assets/'+m.photo+')'">
+                                    </div>
+                                    <div><strong>{{m.name}}</strong> </div>
+                                    <div>{{m.role}}</div>
+                                </div>
+
+
+                            </div>-->
+
+                        </div>
+                        <div class="row" style="font-size: 12px; text-align: center;" *ngIf="suit==1">
+                            <div class="col-sm-3" *ngFor="let m of members| slice:4:members.length">
+                                <div style="border: 1px solid black; border-radius: 50%;height: 50px;
+                                width: 50px; margin: auto; 
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;"
+                                    [style.background-image]="'url(../../assets/img/'+m.photo+')'">
+                                </div>
+                                <div><strong>{{m.name}}</strong> </div>
+                                <div>{{m.role}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="suit==1">
+                        <button mat-icon-button type="button" class="btn btn-outline-primary    "
+                            style="float: right; border-radius: 50%;" (click)="displayNext()">
+                            <i class="material-icons">expand_less</i></button>
+                    </div>
+
+                </div>
+            </div>
+        </mat-card-content>
+
+    </mat-card>
+
+</div>
